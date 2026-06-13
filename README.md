@@ -29,9 +29,13 @@ The software is made to separate profiles made by the player. To make it simple,
 
 ## 📜 Versions History
 0.1, 0.2, and 0.3 : Added the profiling system
+
 1.0 : Fixed bugs, added downloading label
+
 1.1 : First refactoring, fixed bugs, GUI improvements
+
 1.2 : Added RAM selection options, fixed bugs
+
 2.0 : Coming soon, will be adding microsoft accounts
 
 ## ⚙️ Installation
