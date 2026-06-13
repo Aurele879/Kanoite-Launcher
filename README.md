@@ -8,28 +8,31 @@
 ## Overview
 A minecraft launcher written in python. It can run any version of the game, whether vanilla or modded.
 The software is made to separate profiles made by the player. To make it simple, when you want to launch the game, you first need to create a profile with a name and a version. When this is done, you can launch it and all files will be isolated from your others profiles. If you use different texture packs or mods in different versions, every world is only accessible from the profile you used to create it.
-
 ### Features
-
 | Feature | Implementation |
 | :--- | :--- |
 | **GUI** | ✅ |
 | **Profiles** | ✅ |
 | **Customizable settings** | ✅ |
 | **Discord Rich Presence** | ✅ |
-
-### Login page
+#### Login page
 <img src="preview/login_preview.png"></img>
-### Main Page
+#### Main Page
 <img src="preview/main_preview.png"></img>
-### Loading animation
+#### Loading animation
 <img src="preview/loading_preview.png"></img>
-### Settings page
+#### Settings page
 <img src="preview/settings_preview.png"></img>
-### Profile Managment pages
+#### Profile Managment pages
 <img src="preview/pc_preview.png"></img>
 <img src="preview/pe_preview.png"></img>
 
+## Versions History
+0.1, 0.2, and 0.3 : Added the profiling system
+1.0 : Fixed bugs, added downloading label
+1.1 : First refactoring, fixed bugs, GUI improvements
+1.2 : Added RAM selection options, fixed bugs
+2.0 : Coming soon, will be adding microsoft accounts
 
 ## ⚙️ Installation
 For the moment, the official Microsoft authentication system is not active while awaiting the Azure AppID review. Consequently, this project is currently maintained as a technical demonstration and must only be used if you legally OWN the game.
