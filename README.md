@@ -5,7 +5,7 @@
 </p>
 <img src="assets/logo.png"></img>
 
-## Overview
+## 📖 Overview
 A minecraft launcher written in python. It can run any version of the game, whether vanilla or modded.
 The software is made to separate profiles made by the player. To make it simple, when you want to launch the game, you first need to create a profile with a name and a version. When this is done, you can launch it and all files will be isolated from your others profiles. If you use different texture packs or mods in different versions, every world is only accessible from the profile you used to create it.
 ### Features
@@ -27,7 +27,7 @@ The software is made to separate profiles made by the player. To make it simple,
 <img src="preview/pc_preview.png"></img>
 <img src="preview/pe_preview.png"></img>
 
-## Versions History
+## 📜 Versions History
 0.1, 0.2, and 0.3 : Added the profiling system
 1.0 : Fixed bugs, added downloading label
 1.1 : First refactoring, fixed bugs, GUI improvements
