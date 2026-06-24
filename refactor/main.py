@@ -137,6 +137,7 @@ def start_game(): #Start the game files download and launch
 Frontend interactions
 """
 def connect():
+    global username
     username = ui.username_entry.get()
     if len(username) == 0:
         messagebox.showerror("Error", "Username cannot be empty.")
@@ -152,26 +153,30 @@ def go_to_settings():
     ui.settings_page()
 
 def go_to_main():
+    ui.versions_combobox.set("") #Resetting the versions combobox to avoid errors when changing profile
+    ui.profile_name_entry.delete(0, 'end') #Resetting the profile name entry to avoid errors when changing profile
     ui.fill_profiles_combobox(get_profile_list_by_name()) #Filling the profiles combobox with the profiles names
     ui.main_page()
 
 def go_to_new_profile():
+    version_list = get_available_versions()
+    ui.fill_versions_combobox(version_list)
     ui.create_profile_page()
 
 def go_to_edit_profile():
+    current_profile = get_profile_from_name(ui.profiles_combobox_variable.get())
+    ui.versions_combobox.set(current_profile.version) #Resetting the versions combobox to avoid errors when changing profile
+    ui.fill_versions_combobox(get_installed_and_available_versions(get_profile_from_name(ui.profile_name_entry.get()))) #Setting the default version to the first one in the list)
     ui.edit_profile_page()
-    ui.versions_combobox.set(get_installed_and_available_versions(get_profile_from_name(ui.profile_name_entry.get()))) #Setting the default version to the first one in the list)
 
 def run():
     ui.create_profile_button.configure(command=lambda: create_profile())
     ui.off_login_button.configure(command=lambda: connect())
     ui.settings_button.configure(command=lambda: go_to_settings())
-    ui.add_loader_button.configure(command=lambda: go_to_new_profile())
     ui.edit_profile_button.configure(command=lambda: go_to_edit_profile())
     ui.play_button.configure(command=lambda: start_game())
     ui.create_profile_button.configure(command=lambda: create_profile())
-    ui.add_profile_button.configure(command=lambda: ui.create_profile_page())
-    #ui.save_edited_profile_button.configure(command=lambda: save_profiles())
+    ui.add_profile_button.configure(command=lambda: go_to_new_profile())
     ui.back_button.configure(command=lambda: go_to_main())
     ui.display()
 
