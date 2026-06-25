@@ -36,6 +36,8 @@ The software is made to separate profiles made by the player. To make it simple,
 
 1.2 : Added RAM selection options, fixed bugs
 
+1.3 : Total refactor to separate jobs
+
 2.0 : Coming soon, will be adding microsoft accounts
 
 ## ⚙️ Installation
