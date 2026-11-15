@@ -39,7 +39,7 @@ The software is made to separate profiles made by the player. To make it simple,
 
 1.3 : Total refactor to separate jobs
 
-2.0 : Added turnkey official Microsoft account authentication (OAuth2 Device Code Flow, token refresh, Xbox Live & Minecraft Services integration)
+2.0 / 2.1 : Added turnkey official Microsoft account authentication (OAuth2 Device Code Flow, token refresh, Xbox Live & Minecraft Services integration)
 
 ## ⚙️ Installation & Usage
 1. Install dependencies:
