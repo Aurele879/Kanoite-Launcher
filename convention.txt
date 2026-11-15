@@ -1,0 +1,11 @@
+def fonction(x):
+#Explication de la fonction
+    return X
+
+
+"""
+SECTION DE CODE
+"""
+
+! Aucun autre commentaire
+! Toutes les variables doivent être en anglais et claires, pour les commentaires, tout doit aussi être en anglais

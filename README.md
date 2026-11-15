@@ -12,6 +12,7 @@ The software is made to separate profiles made by the player. To make it simple,
 | Feature | Implementation |
 | :--- | :--- |
 | **GUI** | ✅ |
+| **Microsoft Authentication** | ✅ |
 | **Profiles** | ✅ |
 | **Customizable settings** | ✅ |
 | **Discord Rich Presence** | ✅ |
@@ -38,7 +39,15 @@ The software is made to separate profiles made by the player. To make it simple,
 
 1.3 : Total refactor to separate jobs
 
-2.0 : Coming soon, will be adding microsoft accounts
+2.0 : Added turnkey official Microsoft account authentication (OAuth2 Device Code Flow, token refresh, Xbox Live & Minecraft Services integration)
 
-## ⚙️ Installation
-For the moment, the official Microsoft authentication system is not active while awaiting the Azure AppID review. Consequently, this project is currently maintained as a technical demonstration and must only be used if you legally OWN the game.
+## ⚙️ Installation & Usage
+1. Install dependencies:
+   ```bash
+   pip install customtkinter minecraft-launcher-lib requests Pillow pypresence
+   ```
+2. Run the launcher:
+   ```bash
+   python main.py
+   ```
+3. Click **"SIGN IN WITH MICROSOFT"**, validate the displayed code on the Microsoft page, and start playing!

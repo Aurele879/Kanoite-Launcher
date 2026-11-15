@@ -1,0 +1,36 @@
+[18:43:05] [main/INFO]: Setting user: Aurele879
+[18:43:05] [main/INFO]: (Session ID is token:eyJraWQiOiIwNDkxODEiLCJhbGciOiJSUzI1NiJ9.eyJ4dWlkIjoiMjUzNTQzMzI1MDI3NTAyNiIsImFnZyI6IkFkdWx0Iiwic3ViIjoiYmU1NWQ5YjEtNzQ1ZC00M2MxLTk2MjgtOWI4MzVjZTVhNWJmIiwiYXV0aCI6IlhCT1giLCJucyI6ImRlZmF1bHQiLCJyb2xlcyI6W10sImlzcyI6ImF1dGhlbnRpY2F0aW9uIiwiZmxhZ3MiOlsibXVsdGlwbGF5ZXIiXSwicHJvZmlsZXMiOnsibWMiOiI5ZDY4MTAxYy00YzdhLTQ0YjAtYTdhNy0xMjNkYTY0Y2NkMGIifSwicG1pZCI6ImFkYzUxODc5LTYyZGEtNWRkNS1iZGNmLTY0ZjEzNWRiN2E3MyIsInBsYXRmb3JtIjoiUENfTEFVTkNIRVIiLCJ0aWQiOiJFOTlCMCIsInBmZCI6W3sidHlwZSI6Im1jIiwiaWQiOiI5ZDY4MTAxYy00YzdhLTQ0YjAtYTdhNy0xMjNkYTY0Y2NkMGIiLCJuYW1lIjoiQXVyZWxlODc5In1dLCJ4aWQiOiIyNTM1NDMzMjUwMjc1MDI2IiwibmJmIjoxNzk0NzY0NDgxLCJleHAiOjE3OTQ4NTA4ODEsImlhdCI6MTc5NDc2NDQ4MSwiYWlkIjoiYzM2YTlmYjYtNGYyYS00MWZmLTkwYmQtYWU3Y2M5MjAzMWViIn0.AJocrXMkiPQiigszAU6GpJstyAYg2y6E2_hBJtAxlNMSiNeTIe_ec8PRQErYQTGCgrpLF-2WsTeerAvoi6T92D-2WbKnvSpvnFOJoP1mDnG5VxJgrQ4A4qQCvaFobdLBbUvvsulXtGluuGMSyCiVjWI4WNitMbGGpYdfp0-66SJUChDxJLROFB1f2RobdeP4EtxQlsdiMVeDgVj4JkADDu7AWHS7KAm_5-xiaTn18J0v-f8j5cQYZDboVKAEsYTGr0iforBU-szgmrN6Hokkr9t6hFLpBAopHHZs7mk6OjPEfiWHSPMuQ3LQqR3wkRx1UYJIHGyKj55X0jpRVGuMww:9d68101c4c7a44b0a7a7123da64ccd0b)
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.attack:key.mouse.left
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.use:key.mouse.right
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.forward:key.keyboard.w
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.left:key.keyboard.a
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.back:key.keyboard.s
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.right:key.keyboard.d
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.jump:key.keyboard.space
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.sneak:key.keyboard.left.shift
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.sprint:key.keyboard.left.control
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.drop:key.keyboard.q
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.inventory:key.keyboard.e
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.chat:key.keyboard.t
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.playerlist:key.keyboard.tab
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.pickItem:key.mouse.middle
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.command:key.keyboard.slash
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.screenshot:key.keyboard.f2
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.togglePerspective:key.keyboard.f5
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.smoothCamera:key.keyboard.unknown
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.fullscreen:key.keyboard.f11
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.hotbar.1:key.keyboard.1
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.hotbar.2:key.keyboard.2
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.hotbar.3:key.keyboard.3
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.hotbar.4:key.keyboard.4
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.hotbar.5:key.keyboard.5
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.hotbar.6:key.keyboard.6
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.hotbar.7:key.keyboard.7
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.hotbar.8:key.keyboard.8
+[18:43:05] [Client thread/WARN]: Skipping bad option: key_key.hotbar.9:key.keyboard.9
+[18:43:05] [Client thread/INFO]: LWJGL Version: 2.9.1
+[18:43:05] [Client thread/INFO]: Reloading ResourceManager: Default
+[18:43:06] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[18:43:06] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[18:43:06] [Sound Library Loader/INFO]: Sound engine started
+[18:43:15] [Client thread/INFO]: Stopping!
