@@ -204,6 +204,14 @@ def delete_profile():
             shutil.rmtree(profile_to_delete.profile_directory)
             profile_list.pop(target_index)
             save_profiles()
+
+            remaining_profiles = get_profile_list_by_name()
+            if len(remaining_profiles) > 0:
+                ui.profiles_combobox_variable.set(remaining_profiles[0])
+            else:
+                ui.profiles_combobox_variable.set("none")
+            save_last_used_profile()
+
             go_to_main()
             messagebox.showinfo("Profile Removal", f"Profile '{profile_name}' has been deleted.")
         except Exception as error:
@@ -224,9 +232,12 @@ def open_directory():
 def get_available_versions():
 #Retrieve all official release versions from Mojang servers
     version_list = []
-    for version in minecraft_launcher_lib.utils.get_version_list():
-        if version["type"] == "release":
-            version_list.append(version["id"])
+    try:
+        for version in minecraft_launcher_lib.utils.get_version_list():
+            if version["type"] == "release":
+                version_list.append(version["id"])
+    except Exception:
+        pass
     return version_list
 
 
@@ -368,7 +379,8 @@ MICROSOFT AUTHENTICATION
 def start_microsoft_login():
 #Initiate the Microsoft authentication process in a background thread
     global stop_auth_event
-    stop_auth_event.clear()
+    stop_auth_event.set()
+    stop_auth_event = threading.Event()
     ui.ms_login_button.configure(state="disabled")
     ui.update_ms_status("Connecting to Microsoft services...")
 
@@ -392,11 +404,6 @@ def microsoft_login_worker():
 
         def display_code():
             ui.ms_code_page(user_code, verification_uri)
-            ui.copy_to_clipboard(user_code)
-            try:
-                webbrowser.open(verification_uri)
-            except Exception:
-                pass
 
         ui.root.after(0, display_code)
 
@@ -518,15 +525,24 @@ def go_to_new_profile():
     ui.fill_versions_combobox(version_list)
     if version_list:
         ui.versions_combobox.set(version_list[0])
+    else:
+        ui.versions_combobox.set("")
+        messagebox.showwarning("Warning", "Unable to fetch Minecraft versions. Please check your internet connection.")
     ui.create_profile_page()
 
 
 def go_to_edit_profile():
 #Populate selected profile data and display the profile editor screen
-    current_profile = get_profile_from_name(ui.profiles_combobox_variable.get())
-    if current_profile is None or ui.profiles_combobox_variable.get() == "none":
+    selected_name = ui.profiles_combobox_variable.get()
+    if selected_name == "none" or not selected_name:
         messagebox.showerror("Error", "Select a profile first !")
         return
+
+    current_profile = get_profile_from_name(selected_name)
+    if current_profile is None:
+        messagebox.showerror("Error", "Select a profile first !")
+        return
+
     ui.versions_combobox.set(current_profile.version)
     ui.fill_versions_combobox(get_installed_and_available_versions(current_profile))
     ui.profile_name_entry.delete(0, 'end')

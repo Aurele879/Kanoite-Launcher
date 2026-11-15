@@ -24,12 +24,14 @@ class Gui:
         self.root.configure(fg_color="#1C1C1C")
 
         self.background_image = PhotoImage(file="assets/background2.png")
+        self.loading_background_image = PhotoImage(file="assets/background.png")
         self.background_label = Label(self.root, image=self.background_image)
 
         self.play_image = Image.open("assets/play.png")
         self.settings_image = Image.open("assets/settings.png")
         self.block_image = Image.open("assets/block_logo.png")
         self.logo_image = Image.open("assets/logo.png")
+        self.login_image = Image.open("assets/login_logo_bis.png")
 
         self.current_verification_uri = "https://www.microsoft.com/link"
         self.setup_widgets()
@@ -223,33 +225,33 @@ class Gui:
 
         self.ms_login_title = customtkinter.CTkLabel(
             self.root,
-            text="Microsoft Login",
+            text="Welcome to Kanoite Launcher !",
             font=("Arial", 46, "bold")
         )
 
         self.ms_login_subtitle = customtkinter.CTkLabel(
             self.root,
-            text="Connect with your official Microsoft account to play Minecraft",
+            text="Please, connect with your official Microsoft account to continue.",
             font=("Arial", 15),
             text_color="#AAAAAA"
         )
 
-        self.launcher_logo_ctk = customtkinter.CTkImage(
-            light_image=self.logo_image,
-            dark_image=self.logo_image,
+
+        self.login_logo_ctk = customtkinter.CTkImage(
+            light_image=self.login_image,
+            dark_image=self.login_image,
             size=(150, 150)
         )
-        self.login_logo = customtkinter.CTkLabel(self.root, image=self.launcher_logo_ctk, text="")
+        self.login_logo = customtkinter.CTkLabel(self.root, image=self.login_logo_ctk, text="")
 
         self.ms_login_button = customtkinter.CTkButton(
             self.root,
-            text="SIGN IN WITH MICROSOFT",
+            text="SIGN IN",
             width=450,
             height=52,
             corner_radius=20,
             font=("Arial", 18, "bold"),
-            fg_color="#0067B8",
-            hover_color="#005DA6"
+            bg_color="#1C1C1C"
         )
 
         self.ms_code_title = customtkinter.CTkLabel(
@@ -269,53 +271,54 @@ class Gui:
         )
 
         self.ms_code_instruction = customtkinter.CTkLabel(
-            self.root,
+            self.ms_code_frame,
             text="Enter the following code on the Microsoft page:",
             font=("Arial", 15),
             text_color="#D5D5D5"
         )
 
         self.ms_code_display = customtkinter.CTkLabel(
-            self.root,
+            self.ms_code_frame,
             text="XXXX-XXXX",
             font=("Arial", 36, "bold"),
             text_color="#00D26A"
         )
 
         self.ms_copy_button = customtkinter.CTkButton(
-            self.root,
+            self.ms_code_frame,
             text="COPY CODE",
-            width=180,
-            height=40,
-            corner_radius=14,
-            font=("Arial", 13, "bold"),
-            fg_color="#28A33C",
-            hover_color="#1B6D28",
-            command=self.copy_current_code
-        )
-
-        self.ms_browser_button = customtkinter.CTkButton(
-            self.root,
-            text="OPEN BROWSER",
             width=180,
             height=40,
             corner_radius=14,
             font=("Arial", 13, "bold"),
             fg_color="#0067B8",
             hover_color="#005DA6",
+            bg_color="#232323",
+            command=self.copy_current_code
+        )
+
+        self.ms_browser_button = customtkinter.CTkButton(
+            self.ms_code_frame,
+            text="OPEN BROWSER",
+            width=180,
+            height=40,
+            corner_radius=14,
+            font=("Arial", 13, "bold"),
+            bg_color="#232323",
             command=self.open_browser_url
         )
 
         self.ms_auth_progress = customtkinter.CTkProgressBar(
-            self.root,
+            self.ms_code_frame,
             mode="indeterminate",
             width=440,
             height=10,
-            corner_radius=6
+            corner_radius=6,
+            bg_color="#232323"
         )
 
         self.ms_status_label = customtkinter.CTkLabel(
-            self.root,
+            self.ms_code_frame,
             text="",
             font=("Arial", 13),
             text_color="#8E8E8E"
@@ -329,12 +332,13 @@ class Gui:
             corner_radius=14,
             font=("Arial", 13, "bold"),
             fg_color="#972626",
-            hover_color="#751F1F"
+            hover_color="#751F1F",
+            bg_color="#1C1C1C"
         )
 
         self.account_badge = customtkinter.CTkLabel(
             self.root,
-            text="● Player",
+            text="☺ Player",
             font=("Arial", 13, "bold"),
             text_color="#FFFFFF",
             fg_color="#222222",
@@ -406,6 +410,7 @@ class Gui:
     def loading_page(self, text):
 #Display the loading screen with a progress bar and status text
         self.clear_ui()
+        self.background_label.configure(image=self.loading_background_image)
         self.background_label.pack()
         self.loading_bar.place(relx=0.05, rely=0.882)
         self.loading_label.place(relx=0.05, rely=0.92)
@@ -416,7 +421,7 @@ class Gui:
 #Display the Microsoft login landing page
         self.clear_ui()
         self.background_label.pack_forget()
-        self.ms_login_button.configure(state="normal", text="SIGN IN WITH MICROSOFT")
+        self.ms_login_button.configure(state="normal", text="SIGN IN")
         self.ms_status_label.configure(text="")
 
         self.ms_login_title.place(relx=0.5, rely=0.12, anchor="center")
@@ -432,20 +437,20 @@ class Gui:
         self.current_verification_uri = verification_uri
         self.ms_code_display.configure(text=user_code)
         self.ms_status_label.configure(text="Waiting for authentication in browser...")
-        self.ms_copy_button.configure(text="COPY CODE", fg_color="#28A33C")
+        self.ms_copy_button.configure(text="COPY CODE", fg_color="#0067B8")
 
         self.ms_code_title.place(relx=0.5, rely=0.10, anchor="center")
         self.ms_code_frame.place(relx=0.5, rely=0.48, anchor="center")
 
-        self.ms_code_instruction.place(relx=0.5, rely=0.31, anchor="center")
-        self.ms_code_display.place(relx=0.5, rely=0.41, anchor="center")
-        self.ms_copy_button.place(relx=0.39, rely=0.52, anchor="center")
-        self.ms_browser_button.place(relx=0.61, rely=0.52, anchor="center")
+        self.ms_code_instruction.place(relx=0.5, rely=0.16, anchor="center")
+        self.ms_code_display.place(relx=0.5, rely=0.36, anchor="center")
+        self.ms_copy_button.place(relx=0.33, rely=0.60, anchor="center")
+        self.ms_browser_button.place(relx=0.67, rely=0.60, anchor="center")
 
-        self.ms_auth_progress.place(relx=0.5, rely=0.60, anchor="center")
+        self.ms_auth_progress.place(relx=0.5, rely=0.78, anchor="center")
         self.ms_auth_progress.start()
 
-        self.ms_status_label.place(relx=0.5, rely=0.66, anchor="center")
+        self.ms_status_label.place(relx=0.5, rely=0.89, anchor="center")
         self.ms_cancel_button.place(relx=0.5, rely=0.86, anchor="center")
 
     def update_ms_status(self, text):
@@ -463,8 +468,8 @@ class Gui:
             self.root.clipboard_clear()
             self.root.clipboard_append(text)
             self.root.update()
-            self.ms_copy_button.configure(text="COPIED !", fg_color="#1B6D28")
-            self.root.after(2000, lambda: self.ms_copy_button.configure(text="COPY CODE", fg_color="#28A33C"))
+            self.ms_copy_button.configure(text="COPIED !", fg_color="#005DA6")
+            self.root.after(2000, lambda: self.ms_copy_button.configure(text="COPY CODE", fg_color="#0067B8"))
         except Exception:
             pass
 
@@ -477,11 +482,12 @@ class Gui:
 
     def set_account_display(self, username):
 #Update the username badge on the main page
-        self.account_badge.configure(text=f"● {username}")
+        self.account_badge.configure(text=f"☺ {username}")
 
     def main_page(self):
 #Display the main launcher page
         self.clear_ui()
+        self.background_label.configure(image=self.background_image)
         self.background_label.pack()
         self.profiles_combobox.place(relx=0.05, rely=0.836)
         self.add_profile_button.place(relx=0.204, rely=0.836)
