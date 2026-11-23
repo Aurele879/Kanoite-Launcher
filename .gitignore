@@ -8,6 +8,8 @@ config.ini
 account.json
 profiles.dat
 instances/
+data/
+game/
 
 # Virtual environments
 venv/

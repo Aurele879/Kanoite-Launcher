@@ -9,7 +9,7 @@ class Profile:
         self.name = name
         self.version = version
         self.options = None
-        self.profile_directory = "instances/" + self.name
+        self.profile_directory = "game/" + self.name
 
     def set_options(self, options):
 #Update launch options for the profile

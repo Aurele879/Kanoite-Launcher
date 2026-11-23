@@ -1,4 +1,4 @@
-import random
+import os
 import webbrowser
 from tkinter import Label, PhotoImage
 import customtkinter
@@ -7,7 +7,10 @@ from PIL import Image
 """
 GUI CONFIGURATION
 """
-customtkinter.set_default_color_theme("assets/theme.json")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ASSETS_DIR = os.path.join(BASE_DIR, "assets")
+
+customtkinter.set_default_color_theme(os.path.join(ASSETS_DIR, "theme.json"))
 
 
 """
@@ -20,18 +23,18 @@ class Gui:
         self.root.geometry("1000x550")
         self.root.title("Kanoite Launcher")
         self.root.resizable(False, False)
-        self.root.iconbitmap("assets/icon.ico")
+        self.root.iconbitmap(os.path.join(ASSETS_DIR, "icon.ico"))
         self.root.configure(fg_color="#1C1C1C")
 
-        self.background_image = PhotoImage(file="assets/background2.png")
-        self.loading_background_image = PhotoImage(file="assets/background.png")
+        self.background_image = PhotoImage(file=os.path.join(ASSETS_DIR, "background2.png"))
+        self.loading_background_image = PhotoImage(file=os.path.join(ASSETS_DIR, "background.png"))
         self.background_label = Label(self.root, image=self.background_image)
 
-        self.play_image = Image.open("assets/play.png")
-        self.settings_image = Image.open("assets/settings.png")
-        self.block_image = Image.open("assets/block_logo.png")
-        self.logo_image = Image.open("assets/logo.png")
-        self.login_image = Image.open("assets/login_logo_bis.png")
+        self.play_image = Image.open(os.path.join(ASSETS_DIR, "play.png"))
+        self.settings_image = Image.open(os.path.join(ASSETS_DIR, "settings.png"))
+        self.block_image = Image.open(os.path.join(ASSETS_DIR, "block_logo.png"))
+        self.logo_image = Image.open(os.path.join(ASSETS_DIR, "logo.png"))
+        self.login_image = Image.open(os.path.join(ASSETS_DIR, "login_logo_bis.png"))
 
         self.current_verification_uri = "https://www.microsoft.com/link"
         self.setup_widgets()

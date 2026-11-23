@@ -3,7 +3,7 @@
   <img src="https://img.shields.io/badge/Minecraft-Any Version-blue?style=for-the-badge&logo=minecraft&logoColor=white" alt="Minecraft Version">
   <img src="https://img.shields.io/badge/Statut-In Development-success?style=for-the-badge" alt="Status">
 </p>
-<img src="assets/logo.png"></img>
+<img src="app/assets/logo.png"></img>
 
 ## 📖 Overview
 A minecraft launcher written in python. It can run any version of the game, whether vanilla or modded.
@@ -16,17 +16,18 @@ The software is made to separate profiles made by the player. To make it simple,
 | **Profiles** | ✅ |
 | **Customizable settings** | ✅ |
 | **Discord Rich Presence** | ✅ |
+| **Runtime Data Isolation** | ✅ |
 #### Login page
-<img src="preview/login_preview.png"></img>
+<img src="web/preview/login_preview.png"></img>
 #### Main Page
-<img src="preview/main_preview.png"></img>
+<img src="web/preview/main_preview.png"></img>
 #### Loading animation
-<img src="preview/loading_preview.png"></img>
+<img src="web/preview/loading_preview.png"></img>
 #### Settings page
-<img src="preview/settings_preview.png"></img>
+<img src="web/preview/settings_preview.png"></img>
 #### Profile Managment pages
-<img src="preview/pc_preview.png"></img>
-<img src="preview/pe_preview.png"></img>
+<img src="web/preview/pc_preview.png"></img>
+<img src="web/preview/pe_preview.png"></img>
 
 ## 📜 Versions History
 0.1, 0.2, and 0.3 : Added the profiling system
@@ -48,6 +49,6 @@ The software is made to separate profiles made by the player. To make it simple,
    ```
 2. Run the launcher:
    ```bash
-   python main.py
+   python app/main.py
    ```
 3. Click **"SIGN IN WITH MICROSOFT"**, validate the displayed code on the Microsoft page, and start playing!

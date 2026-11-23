@@ -1,9 +1,13 @@
 import configparser
-from gui import Gui
-from profile import Profile
-import auth
-import pickle
+import sys
 import os
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+from ui.gui import Gui
+from core.profile import Profile
+from core import auth
+import pickle
 import shutil
 from tkinter import messagebox
 import minecraft_launcher_lib
@@ -13,7 +17,6 @@ import uuid
 import ctypes
 import time
 import subprocess
-import webbrowser
 from pypresence import Presence
 
 """
@@ -91,7 +94,7 @@ def get_options():
 
 def get_profiles_list():
 #Load stored profiles list from disk
-    profiles_filename = "profiles.dat"
+    profiles_filename = "data/profiles.dat"
     if not os.path.exists(profiles_filename) or os.path.getsize(profiles_filename) == 0:
         return []
     with open(profiles_filename, "rb") as file:
@@ -121,13 +124,13 @@ def get_last_used_profile():
 def save_last_used_profile():
 #Save the currently selected profile name in configuration
     config.set('GUI', 'last_used_profile', ui.profiles_combobox_variable.get())
-    with open("config.ini", 'w') as configfile:
+    with open("data/config.ini", 'w') as configfile:
         config.write(configfile)
 
 
 def save_profiles():
 #Save the current list of profiles to disk
-    with open("profiles.dat", "wb") as file:
+    with open("data/profiles.dat", "wb") as file:
         pickle.dump(profile_list, file)
 
 
@@ -141,7 +144,7 @@ def create_profile():
         return
 
     try:
-        instance_directory = f"instances/{profile_name}"
+        instance_directory = f"game/{profile_name}"
         os.mkdir(instance_directory)
         create_dummy_launcher_config(instance_directory, selected_version)
         profile_list.append(Profile(profile_name, selected_version))
@@ -173,7 +176,7 @@ def edit_profile():
         try:
             old_profile = profile_list[target_index]
             old_directory = old_profile.profile_directory
-            new_directory = os.path.join("instances", new_name)
+            new_directory = os.path.join("game", new_name)
             create_dummy_launcher_config(old_directory, new_version)
             os.rename(old_directory, new_directory)
             profile_list[target_index] = Profile(new_name, new_version)
@@ -503,7 +506,7 @@ def save_settings():
     global ram
     ram = str(int(ui.ram_slider.get()))
     config.set('GUI', 'ram_allocation', ram)
-    with open("config.ini", 'w') as configfile:
+    with open("data/config.ini", 'w') as configfile:
         config.write(configfile)
     go_to_main()
 
@@ -549,6 +552,16 @@ def go_to_edit_profile():
     ui.profile_name_entry.insert(0, current_profile.name)
     ui.edit_profile_page()
 
+def installeur(vanilla_version, loader, directory):
+    try:
+        modloader = minecraft_launcher_lib.mod_loader.get_mod_loader(loader)
+        minecraft_directory = directory
+        installed_version = modloader.install(vanilla_version, minecraft_directory, callback={"setStatus": print})
+        
+        return installed_version
+    except Exception as e:
+        messagebox.showerror("Error", "An error occurred: " + str(e))
+        return 0
 
 def run():
 #Bind all GUI buttons to their handlers and start the launcher
@@ -575,19 +588,22 @@ def run():
 APPLICATION ENTRY POINT
 """
 if __name__ == "__main__":
-    if not os.path.exists("config.ini"):
+    if not os.path.exists("data"):
+        os.mkdir("data")
+    if not os.path.exists("game"):
+        os.mkdir("game")
+
+    if not os.path.exists("data/config.ini"):
         config['GUI'] = {
             'last_used_profile': 'none',
             'ram_allocation': '2'
         }
-        with open("config.ini", 'w') as configfile:
+        with open("data/config.ini", 'w') as configfile:
             config.write(configfile)
     else:
-        config.read('config.ini')
+        config.read('data/config.ini')
 
     ram = config.get('GUI', 'ram_allocation', fallback='2')
     profile_list = get_profiles_list()
 
-    if not os.path.exists("instances"):
-        os.mkdir("instances")
     run()

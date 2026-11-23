@@ -11,7 +11,7 @@ CLIENT_ID = "c36a9fb6-4f2a-41ff-90bd-ae7cc92031eb"
 DEVICE_CODE_URL = "https://login.microsoftonline.com/consumers/oauth2/v2.0/devicecode"
 TOKEN_URL = "https://login.microsoftonline.com/consumers/oauth2/v2.0/token"
 SCOPE = "XboxLive.signin offline_access"
-ACCOUNT_FILE = "account.json"
+ACCOUNT_FILE = "data/account.json"
 
 
 """
