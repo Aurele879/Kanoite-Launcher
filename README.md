@@ -18,16 +18,16 @@ The software is made to separate profiles made by the player. To make it simple,
 | **Discord Rich Presence** | ✅ |
 | **Runtime Data Isolation** | ✅ |
 #### Login page
-<img src="web/preview/login_preview.png"></img>
+<img src="docs/preview/login_preview.png"></img>
 #### Main Page
-<img src="web/preview/main_preview.png"></img>
+<img src="docs/preview/main_preview.png"></img>
 #### Loading animation
-<img src="web/preview/loading_preview.png"></img>
+<img src="docs/preview/loading_preview.png"></img>
 #### Settings page
-<img src="web/preview/settings_preview.png"></img>
+<img src="docs/preview/settings_preview.png"></img>
 #### Profile Managment pages
-<img src="web/preview/pc_preview.png"></img>
-<img src="web/preview/pe_preview.png"></img>
+<img src="docs/preview/pc_preview.png"></img>
+<img src="docs/preview/pe_preview.png"></img>
 
 ## 📜 Versions History
 0.1, 0.2, and 0.3 : Added the profiling system
