@@ -1,9 +1,13 @@
 ## 🔶 Kanoite Launcher : _Formerly Astro Launcher 2_
+
 <p align="center">
-  <img src="https://img.shields.io/badge/Minecraft-Any Version-blue?style=for-the-badge&logo=minecraft&logoColor=white" alt="Minecraft Version">
-  <img src="https://img.shields.io/badge/Statut-In Development-success?style=for-the-badge" alt="Status">
+  <img src="app/assets/logo.png" alt="Kanoite Launcher Logo" width="180" />
 </p>
-<img src="app/assets/logo.png"></img>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Minecraft-Any%20Version-blue?style=for-the-badge&logo=minecraft&logoColor=white" alt="Minecraft Version" />
+  <img src="https://img.shields.io/badge/Status-In%20Development-success?style=for-the-badge" alt="Status" />
+</p>
 
 ## 📖 Overview
 A minecraft launcher written in python. It can run any version of the game, whether vanilla or modded.
